@@ -8,6 +8,7 @@ import LightTheme from './themes/light';
 import {createGlobalStyle, ThemeProvider} from 'styled-components';
 import { useState } from 'react';
 import Blog from './pages/Blog';
+import SinglePost from './pages/SinglePost';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -39,8 +40,14 @@ function App() {
         <Route path="/blog" exact>
           <Blog />
         </Route>
+        <Route path="/blog/post/:postId" exact>
+          <SinglePost />
+        </Route>
         <Route path="/" exact>
           <Home />
+        </Route>
+        <Route path="*">
+          <p>404</p>
         </Route>
       </Switch>
     </ThemeProvider>

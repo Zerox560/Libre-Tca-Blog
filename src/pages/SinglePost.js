@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom";
+import { useParams } from "react-router";
 
 import styled from "styled-components";
-import { PageLayout } from "../components/common/PageLayout";
 
 const DUMMY_POSTS = [
   {
@@ -14,60 +13,51 @@ const DUMMY_POSTS = [
   },
 ];
 
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  font-weight: bold;
-  color: ${(p) => p.theme.bodyFontColor};
-`;
-
-const PostsWrapper = styled.section`
-  margin-top: 2em;
+const SinglePostWrapper = styled.section`
   display: grid;
-  grid-gap: 20px;
-  grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
+    ". title ."
     "image image image"
-    "title title title";
-  justify-content: center;
-  flex-wrap: nowrap;
+    "content content content";
+  justify-items: center;
+  padding: 0 2.5em;
 
-  ul {
-    list-style: none;
-
-    li img {
-      cursor: pointer;
-      grid-area: image;
-      width: 100%;
-      border: solid 3px ${(p) => p.theme.bodyFontColor};
-    }
-
-    p {
-      font-weight: bold;
-      grid-area: title;
-      text-align: center;
-    }
+  h1 {
+    text-align: center;
+    grid-area: title;
+  }
+  img {
+    border: solid 3px ${(p) => p.theme.bodyFontColor};
+    grid-area: image;
+    max-height: 50vh;
+    object-fit: cover;
+    width: 80vw;
+    margin-bottom: 2em;
+  }
+  p {
+    grid-area: content;
   }
 `;
 
-const Blog = () => {
-  const posts = DUMMY_POSTS.map((post) => (
-    <ul>
-      <StyledLink to={`/blog/post/${post.id}`}>
-        <li key={post.id}>
-          <img src={post.image} alt="" />
-          <p>{post.title}</p>
-        </li>
-      </StyledLink>
-    </ul>
-  ));
+const SinglePost = () => {
+  const { postId } = useParams();
+  console.log(postId);
+
+  const post = DUMMY_POSTS.find((p) => p.id === postId);
 
   return (
-    <PageLayout>
-      <h1>Posts más recientes</h1>
-      <hr />
-      <PostsWrapper>{posts}</PostsWrapper>
-    </PageLayout>
+    <SinglePostWrapper>
+      {post ? (
+        <>
+          <h1>{post.title}</h1>
+          <img src={post.image} alt="" />
+          <p>{post.content}</p>
+        </>
+      ) : (
+        <h1>No se encontró ese post.</h1>
+      )}
+    </SinglePostWrapper>
   );
 };
 
-export default Blog;
+export default SinglePost;
