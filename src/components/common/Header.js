@@ -111,6 +111,9 @@ export const Header = () => {
                 <StyledLink to="/" isActive={pathname === '/'}>
                     Home
                 </StyledLink>
+                <StyledLink to="/blog" isActive={pathname === '/blog'}>
+                    Blog
+                </StyledLink>
                 <StyledLink to="/login" isActive={pathname === '/login'}>
                     Login
                 </StyledLink>

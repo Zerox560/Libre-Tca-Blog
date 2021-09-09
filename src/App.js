@@ -7,6 +7,7 @@ import DarkTheme from './themes/dark';
 import LightTheme from './themes/light';
 import {createGlobalStyle, ThemeProvider} from 'styled-components';
 import { useState } from 'react';
+import Blog from './pages/Blog';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -34,6 +35,9 @@ function App() {
       <Switch>
         <Route path="/login" exact>
           <Login />
+        </Route>
+        <Route path="/blog" exact>
+          <Blog />
         </Route>
         <Route path="/" exact>
           <Home />
