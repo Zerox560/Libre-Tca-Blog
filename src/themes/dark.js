@@ -2,7 +2,7 @@ const DarkTheme = {
     id: 'dark',
     bodyColor: 'black',
     bodyFontColor: '#fff',
-    cardColor: '#f8049c',
+    cardColor: '#d8b4f1',
     loginColor: 'white',
     spinnerColor: 'white'
 };

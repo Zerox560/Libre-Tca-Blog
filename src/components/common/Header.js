@@ -12,13 +12,14 @@ const HeaderWrapper = styled.header`
     padding: 0 16px;
     position: fixed;
     top: 0;
-    background: #f8049c;
+    background: #d8b4f1;
     border-bottom: solid 3px black;
 
     .branding-text {
         margin: auto 0;
         font-size: 1.9em;
         font-family: Arial, Helvetica, sans-serif;
+        text-shadow: -1px 1px 5px black;
     }
 `;
 
@@ -59,6 +60,7 @@ const StyledLink = styled(Link)`
     display: block;
     text-align: center;
     box-sizing: border-box;
+    text-shadow: -1px 1px 5px black;
     margin: auto 0;
     font-weight: ${p => p.isActive ? 'bold' : 'normal'};
     color: ${p => p.theme.bodyFontColor};
@@ -96,7 +98,7 @@ export const Header = () => {
 
     const toggleActiveHandler = () => {
         setTheme();
-        setToggleIsActive(prevIsActive => !prevIsActive)
+        setToggleIsActive(prevIsActive => !prevIsActive);
     };
 
     return (

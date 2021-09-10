@@ -9,33 +9,52 @@ const DUMMY_POSTS = [
     image:
       "https://images.unsplash.com/photo-1551499779-ee50f1aa4d25?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80",
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis scelerisque sapien, at feugiat nisl egestas eget. Vivamus eu risus hendrerit, egestas ante pretium, ornare sem. Phasellus vel ligula odio. Proin molestie varius turpis, a mattis purus dictum quis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris id justo imperdiet, laoreet metus eget, iaculis diam. Aliquam risus ante, fringilla eu enim ac, aliquam malesuada dolorLorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis scelerisque sapien, at feugiat nisl egestas eget. Vivamus eu risus hendrerit, egestas ante pretium, ornare sem. Phasellus vel ligula odio. Proin molestie varius turpis, a mattis purus dictum quis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris id justo imperdiet, laoreet metus eget, iaculis diam. Aliquam risus ante, fringilla eu enim ac, aliquam malesuada dolor",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis scelerisque sapien, at feugiat nisl egestas eget. Vivamus eu risus hendrerit, egestas ante pretium, ornare sem. Phasellus vel ligula odio. Proin molestie varius turpis, a mattis purus dictum quis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris id justo imperdiet, laoreet metus eget, iaculis diam. Aliquam risus ante, fringilla eu enim ac, aliquam malesuada dolorLorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis scelerisque sapien, at feugiat nisl egestas eget. Vivamus eu risus hendrerit, egestas ante pretium, ornare sem. Phasellus vel ligula odio. Proin molestie varius turpis, a mattis purus dictum quis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris id justo imperdiet, laoreet metus eget, iaculis diam. Aliquam risus ante, fringilla eu enim ac, aliquam malesuada doloris. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris id justo imperdiet, laoreet metus eget, iaculis diam. Aliquam risus ante, fringilla eu enim ac, aliquam malesuada dolorLorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis scelerisque sapien, at feugiat nisl egestas eget. Vivamus eu risus hendrerit, egestas ante pretium, ornare sem. Phasellus vel ligula odio. Proin molestie varius turpis, a mattis purus dictum quis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris id justo imperdiet, laoreet metus eget, iaculis diam. Aliquam risus ante, fringilla eu enim ac, aliquam malesuada doloris. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris id justo imperdiet, laoreet metus eget, iaculis diam. Aliquam risus ante, fringilla eu enim ac, aliquam malesuada dolorLorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis scelerisque sapien, at feugiat nisl egestas eget. Vivamus eu risus hendrerit, egestas ante pretium, ornare sem. Phasellus vel ligula odio. Proin molestie varius turpis, a mattis purus dictum quis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris id justo imperdiet, laoreet metus eget, iaculis diam. Aliquam risus ante, fringilla eu enim ac, aliquam malesuada doloris. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris id justo imperdiet, laoreet metus eget, iaculis diam. Aliquam risus ante, fringilla eu enim ac, aliquam malesuada dolorLorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque venenatis scelerisque sapien, at feugiat nisl egestas eget. Vivamus eu risus hendrerit, egestas ante pretium, ornare sem. Phasellus vel ligula odio. Proin molestie varius turpis, a mattis purus dictum quis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris id justo imperdiet, laoreet metus eget, iaculis diam. Aliquam risus ante, fringilla eu enim ac, aliquam malesuada dolor"
   },
 ];
 
 const SinglePostWrapper = styled.section`
   display: grid;
   grid-template-areas:
-    ". title ."
-    "image image image"
-    "content content content";
+    "title title title"
+    "content content image";
   justify-items: center;
   padding: 0 2.5em;
 
   h1 {
+    font-size: 3em;
+    text-decoration: underline;
     text-align: center;
     grid-area: title;
+    margin-bottom: 2em;
   }
   img {
-    border: solid 3px ${(p) => p.theme.bodyFontColor};
     grid-area: image;
-    max-height: 50vh;
+    width: 40vw;
     object-fit: cover;
-    width: 80vw;
-    margin-bottom: 2em;
   }
   p {
     grid-area: content;
+    margin-right: 3em;
+  }
+
+  @media(max-width: 768px) {
+    grid-template-areas:
+    "title title title"
+    "image image image"
+    "content content content";
+
+    h1 {
+      margin-bottom: 1.8em;
+      font-size: 1.4em;
+    }
+    img {
+      width: 100%;
+      margin-bottom: 1.5em;
+    }
+    p {
+      margin-right: 0;
+    }
   }
 `;
 
